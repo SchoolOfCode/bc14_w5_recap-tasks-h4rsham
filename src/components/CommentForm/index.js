@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export default function CommentForm(props) {
   const [author, setAuthor] = useState("");
   const [comment, setComment] = useState("");
-  const [commentList, setCommentList] = useState([]);
+  // const [commentList, setCommentList] = useState([]);
 
   const handleAuthorChange = (event) => {
     setAuthor(event.target.value);
@@ -15,22 +16,23 @@ export default function CommentForm(props) {
 
   const handleSubmit = () => {
     const newComment = {
+      id: uuidv4(),
       author: author,
       comment: comment,
     };
-    setCommentList([...commentList, newComment]); // This adds the new comment to the commentList array
+    props.setCommentList([...props.commentList, newComment]); // This adds the new comment to the commentList array
     setComment("");
   };
 
   // Grey area start
-  const CommentCard = ({ comment }) => {
-    return (
-      <div>
-        <h5>Author: {comment.author}</h5>
-        <p>Comment: {comment.comment}</p>
-      </div>
-    );
-  };
+  // const CommentCard = ({ comment }) => {
+  //   return (
+  //     <div>
+  //       <h5>Author: {comment.author}</h5>
+  //       <p>Comment: {comment.comment}</p>
+  //     </div>
+  //   );
+  // };
   // Grey area end
 
   return (
@@ -52,11 +54,11 @@ export default function CommentForm(props) {
       />
       <button onClick={handleSubmit}>Submit</button>
       {/* Grey area start */}
-      <div>
+      {/* <div>
         {commentList.map((comment, index) => (
           <CommentCard key={index} comment={comment} />
         ))}
-      </div>
+      </div> */}
       {/* Grey area end */}
     </div>
   );

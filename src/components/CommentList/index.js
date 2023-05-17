@@ -3,7 +3,7 @@ export default function CommentList(props) {
     <div>
       <p>{props.id}</p>
       <p>{props.author}</p>
-      <p>{props.content}</p>
+      <p>{props.comment}</p>
     </div>
   );
 }

@@ -3,45 +3,26 @@ import BlogPost from "../BlogPost/index";
 import Comment from "../Comment/index";
 import CommentList from "../CommentList/index";
 import CommentForm from "../CommentForm/index";
-import { v4 as uuidv4 } from "uuid";
+import { useState } from "react";
 
 function App() {
   // const [commentList, setCommentList] = useState([]);
-  const commentList = [
-    {
-      id: uuidv4(),
-      author: "Harsham Lachman the 3rd",
-      content: "PROGRESS!",
-    },
-    {
-      id: uuidv4(),
-      author: "Liz K",
-      content: "Potato",
-    },
-    {
-      id: uuidv4(),
-      author: "Chris Meah",
-      content:
-        "Women treat me like HTML, they don't care about whats in my head they only care about what's in my body.",
-    },
-  ];
+  const [commentList, setCommentList] = useState([]);
 
   return (
     <div>
       <BlogPost />
-      <Comment author="Harsham Lachman" content="This is my comment" />
+      <Comment author="Harsham Lachman" comment="This is my comment" />
       {commentList.map((comments) => {
         return (
           <CommentList
             key={comments.id}
-            id={comments.id}
             author={comments.author}
-            content={comments.content}
+            comment={comments.comment}
           />
         );
       })}
-      ;
-      <CommentForm />
+      <CommentForm commentList={commentList} setCommentList={setCommentList} />
     </div>
   );
 }
