@@ -1,5 +1,9 @@
-function CommentList() {
-  return null;
+export default function CommentList(props) {
+  return (
+    <div>
+      <p>{props.id}</p>
+      <p>{props.author}</p>
+      <p>{props.content}</p>
+    </div>
+  );
 }
-
-export default CommentList;
