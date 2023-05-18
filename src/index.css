@@ -1,3 +1,18 @@
+/* Used for unintentional scrollbar */
+/* * {
+  border: red solid 1px;
+} */
+
+.container {
+  margin: 10px 10px 10px 10px;
+  width: 90%;
+}
+
+img {
+  width: 90%; /* Adjust the desired width */
+  height: 100%; /* Adjust the desired height */
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",

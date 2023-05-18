@@ -10,7 +10,7 @@ function App() {
   const [commentList, setCommentList] = useState([]);
 
   return (
-    <div>
+    <div className="container">
       <BlogPost />
       <Comment author="Harsham Lachman" comment="This is my comment" />
       {commentList.map((comments) => {
